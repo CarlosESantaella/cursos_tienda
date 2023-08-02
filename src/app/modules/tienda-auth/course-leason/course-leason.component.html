@@ -1,0 +1,608 @@
+<a class="close_side_menu" href="javascript:void(0);"></a>
+
+<div class="rbt-page-banner-wrapper" *ngIf="courses_selected">
+  <!-- Start Banner BG Image  -->
+  <div class="rbt-banner-image"></div>
+  <!-- End Banner BG Image  -->
+  <div class="rbt-banner-content">
+    <!-- Start Banner Content Top  -->
+    <div class="rbt-banner-content-top rbt-breadcrumb-style-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="content text-center">
+              <div
+                class="d-flex align-items-center flex-wrap justify-content-center mb--15 rbt-course-details-feature"
+              >
+                <div class="feature-sin best-seller-badge">
+                  <span class="rbt-badge-2">
+                    <span class="image"
+                      ><img
+                        src="assets/images/icons/card-icon-1.png"
+                        alt="Best Seller Icon"
+                    /></span>
+                    Bestseller
+                  </span>
+                </div>
+                <div class="feature-sin rating">
+                  <a href="#">{{ courses_selected.avg_reviews }}</a>
+                  <a href="#"
+                    ><i
+                      class="fa fa-star"
+                      [ngClass]="{ rating2: courses_selected.avg_reviews < 1 }"
+                    ></i
+                  ></a>
+                  <a href="#"
+                    ><i
+                      class="fa fa-star"
+                      [ngClass]="{ rating2: courses_selected.avg_reviews < 2 }"
+                    ></i
+                  ></a>
+                  <a href="#"
+                    ><i
+                      class="fa fa-star"
+                      [ngClass]="{ rating2: courses_selected.avg_reviews < 3 }"
+                    ></i
+                  ></a>
+                  <a href="#"
+                    ><i
+                      class="fa fa-star"
+                      [ngClass]="{ rating2: courses_selected.avg_reviews < 4 }"
+                    ></i
+                  ></a>
+                  <a href="#"
+                    ><i
+                      class="fa fa-star"
+                      [ngClass]="{ rating2: courses_selected.avg_reviews < 5 }"
+                    ></i
+                  ></a>
+                </div>
+                <div class="feature-sin total-rating">
+                  <a class="rbt-badge-4" href="#">215,475 rating</a>
+                </div>
+                <div class="feature-sin total-student">
+                  <span>{{ courses_selected.count_students }} students</span>
+                </div>
+              </div>
+              <h2 class="title theme-gradient">
+                {{ courses_selected.count_reviews }}
+              </h2>
+
+              <div class="rbt-author-meta mb--20 justify-content-center">
+                <div class="rbt-avater">
+                  <a href="#">
+                    <img
+                      [src]="courses_selected.instructor.avatar"
+                      alt="Sophia Jaymes"
+                    />
+                  </a>
+                </div>
+                <div class="rbt-author-info">
+                  By
+                  <a href="profile.html" onlick="return false;">{{
+                    courses_selected.instructor.name
+                  }}</a>
+                  In
+                  <a href="#">{{ courses_selected.instructor.profesion }}</a>
+                </div>
+              </div>
+
+              <ul class="rbt-meta">
+                <li>
+                  <i class="feather-calendar"></i>Last updated
+                  {{ courses_selected.updated_at }}
+                </li>
+                <li>
+                  <i class="feather-globe"></i>{{ courses_selected.idioma }}
+                </li>
+                <li><i class="feather-award"></i>Certified Course</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Banner Content Top  -->
+  </div>
+</div>
+
+<div
+  class="rbt-section-overlayping-top rbt-section-gapBottom"
+  *ngIf="courses_selected"
+>
+  <div class="inner">
+    <div class="container">
+      <div class="col-lg-12">
+        <!-- Start Viedo Wrapper  -->
+        <ng-container *ngIf="clase_selected">
+            <!-- <a class="video-popup-with-text video-popup-wrapper text-center popup-video mb--15" href="https://www.youtube.com/watch?v=nA1Aqp0sPQo">
+                            <div class="video-content">
+                                <img class="w-100 rbt-radius" src="assets/images/others/video-07.jpg" alt="Video Images">
+                                <div class="position-to-top">
+                                    <span class="rbt-btn rounded-player-2 with-animation">
+                                            <span class="play-icon"></span>
+                                    </span>
+                                </div>
+                                <span class="play-view-text d-block color-white"><i class="feather-eye"></i> Preview this course</span>
+                            </div>
+                        </a> -->
+            <iframe
+              style="width: 100%"
+              height="800"
+              [src]="urlVideo(clase_selected)"
+              [title]="clase_selected.name"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            >
+            </iframe>
+            <!-- End Viedo Wrapper  -->
+        </ng-container>
+
+        <div class="row row--30 gy-5 pt--60 justify-content-center">
+          <!-- <div class="col-lg-4">
+                            <div class="course-sidebar sticky-top rbt-shadow-box rbt-gradient-border">
+                                <div class="inner">
+                                    <div class="content-item-content">
+                                        <div class="rbt-price-wrapper d-flex flex-wrap align-items-center justify-content-between">
+                                            <div class="rbt-price">
+                                                <span class="current-price">$60.99</span>
+                                                <span class="off-price">$84.99</span>
+                                            </div>
+                                            <div class="discount-time">
+                                                <span class="rbt-badge color-danger bg-color-danger-opacity"><i
+                                                            class="feather-clock"></i> 3 days left!</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="add-to-card-button mt--15">
+                                            <a class="rbt-btn btn-gradient icon-hover w-100 d-block text-center" href="#">
+                                                <span class="btn-text">Add to Cart</span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            </a>
+                                        </div>
+
+                                        <div class="buy-now-btn mt--15">
+                                            <a class="rbt-btn btn-border icon-hover w-100 d-block text-center" href="#">
+                                                <span class="btn-text">Buy Now</span>
+                                                <span class="btn-icon"><i class="feather-arrow-right"></i></span>
+                                            </a>
+                                        </div>
+
+                                        <span class="subtitle"><i class="feather-rotate-ccw"></i> 30-Day Money-Back
+                                                Guarantee</span>
+
+
+                                        <div class="rbt-widget-details has-show-more">
+                                            <ul class="has-show-more-inner-content rbt-course-details-list-wrapper">
+                                                <li><span>Start Date</span><span class="rbt-feature-value rbt-badge-5">5 Hrs 20 Min</span>
+                                                </li>
+                                                <li><span>Enrolled</span><span class="rbt-feature-value rbt-badge-5">100</span></li>
+                                                <li><span>Lectures</span><span class="rbt-feature-value rbt-badge-5">50</span></li>
+                                                <li><span>Skill Level</span><span class="rbt-feature-value rbt-badge-5">Basic</span></li>
+                                                <li><span>Language</span><span class="rbt-feature-value rbt-badge-5">English</span></li>
+                                                <li><span>Quizzes</span><span class="rbt-feature-value rbt-badge-5">10</span></li>
+                                                <li><span>Certificate</span><span class="rbt-feature-value rbt-badge-5">Yes</span></li>
+                                                <li><span>Pass Percentage</span><span class="rbt-feature-value rbt-badge-5">95%</span></li>
+                                            </ul>
+                                            <div class="rbt-show-more-btn">Show More</div>
+                                        </div>
+
+                                        <div class="social-share-wrapper mt--30 text-center">
+                                            <div class="rbt-post-share d-flex align-items-center justify-content-center">
+                                                <ul class="social-icon social-default transparent-with-border justify-content-center">
+                                                    <li><a href="https://www.facebook.com/">
+                                                            <i class="feather-facebook"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="https://www.twitter.com">
+                                                            <i class="feather-twitter"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="https://www.instagram.com/">
+                                                            <i class="feather-instagram"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="https://www.linkdin.com/">
+                                                            <i class="feather-linkedin"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <hr class="mt--20">
+                                            <div class="contact-with-us text-center">
+                                                <p>For details about the course</p>
+                                                <p class="rbt-badge-2 mt--10 justify-content-center w-100"><i class="feather-phone mr--5"></i> Call Us: <a href="#"><strong>+444 555 666 777</strong></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+          <div class="col-lg-8">
+            <!-- Start Course Details  -->
+            <div class="course-details-content">
+              <div class="rbt-inner-onepage-navigation sticky-top">
+                <nav class="mainmenu-nav onepagenav">
+                  <ul class="mainmenu">
+                    <li class="current">
+                      <a href="#coursecontent">Course Content</a>
+                    </li>
+                    <li>
+                      <a href="#overview">Overview</a>
+                    </li>
+                    <li>
+                      <a href="#details">Details</a>
+                    </li>
+                    <li>
+                      <a href="#intructor">Intructor</a>
+                    </li>
+                    <!-- <li>
+                                                <a href="#review">Review</a>
+                                            </li> -->
+                  </ul>
+                </nav>
+              </div>
+
+              <!-- Start Course Content  -->
+              <div
+                class="course-content rbt-shadow-box coursecontent-wrapper mt--30 has-show-more"
+                id="coursecontent"
+              >
+                <div class="rbt-course-feature-inner">
+                  <div class="section-title">
+                    <h4 class="rbt-title-style-3">Course Content</h4>
+                  </div>
+                  <div class="rbt-accordion-style rbt-accordion-02 accordion">
+                    <div class="accordion" id="accordionExampleb2">
+                      <!-- <div class="accordion-item card">
+                        <h2
+                          class="accordion-header card-header"
+                          id="headingTwo1"
+                        >
+                          <button
+                            class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo1"
+                            aria-expanded="true"
+                            aria-controls="collapseTwo1"
+                          >
+                            Intro to Course and Histudy
+                            <span class="rbt-badge-5 ml--10">1hr 30min</span>
+                          </button>
+                        </h2>
+                        <div
+                          id="collapseTwo1"
+                          class="accordion-collapse collapse show"
+                          aria-labelledby="headingTwo1"
+                          data-bs-parent="#accordionExampleb2"
+                        >
+                          <div class="accordion-body card-body pr--0">
+                            <ul class="rbt-course-main-content liststyle">
+                              <li>
+                                <a href="#">
+                                  <div class="course-content-left">
+                                    <i class="feather-play-circle"></i>
+                                    <span class="text">Course Intro</span>
+                                  </div>
+                                  <div class="course-content-right">
+                                    <span class="min-lable">30 min</span>
+                                    <span
+                                      class="rbt-badge variation-03 bg-primary-opacity"
+                                      ><i class="feather-eye"></i> Preview</span
+                                    >
+                                  </div>
+                                </a>
+                              </li>
+
+                              <li>
+                                <a href="#">
+                                  <div class="course-content-left">
+                                    <i class="feather-play-circle"></i>
+                                    <span class="text">Watch Before Start</span>
+                                  </div>
+                                  <div class="course-content-right">
+                                    <span class="min-lable">0.5 min</span>
+                                    <span
+                                      class="rbt-badge variation-03 bg-primary-opacity"
+                                      ><i class="feather-eye"></i> Preview</span
+                                    >
+                                  </div>
+                                </a>
+                              </li>
+
+                              <li>
+                                <a href="#">
+                                  <div class="course-content-left">
+                                    <i class="feather-file-text"></i>
+                                    <span class="text"
+                                      >Read Before You Start</span
+                                    >
+                                  </div>
+                                  <div class="course-content-right">
+                                    <span class="course-lock"
+                                      ><i class="feather-lock"></i
+                                    ></span>
+                                  </div>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div> -->
+
+                      <ng-container
+                        *ngFor="
+                          let section of courses_selected.malla;
+                          let i = index
+                        "
+                      >
+                        <div class="accordion-item card">
+                          <h2
+                            class="accordion-header card-header"
+                            id="headingTwo1"
+                          >
+                            <button
+                              class="accordion-button"
+                              [ngClass]="{ collapsed: i != 0 }"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              [attr.data-bs-target]="
+                                '#collapseTwo' + section.id
+                              "
+                              [attr.aria-expanded]="i == 0 ? true : false"
+                              [attr.aria-controls]="'collapseTwo' + section.id"
+                            >
+                              {{ section.name }}
+                              <span class="rbt-badge-5 ml--10">{{
+                                section.time_section
+                              }}</span>
+                            </button>
+                          </h2>
+                          <div
+                            [id]="'collapseTwo' + section.id"
+                            class="accordion-collapse collapse"
+                            [ngClass]="{ show: i == 0 }"
+                            aria-labelledby="headingTwo1"
+                            data-bs-parent="#accordionExampleb2"
+                          >
+                            <div class="accordion-body card-body pr--0">
+                              <ul class="rbt-course-main-content liststyle">
+                                <ng-container
+                                  *ngFor="let clase of section.clases"
+                                >
+                                  <li>
+                                    <a href="#" onclick="return false;" (click)="openClase(clase)">
+                                      <div class="course-content-left">
+                                        <i class="feather-play-circle"></i>
+                                        <span class="text">{{
+                                          clase.name
+                                        }}</span>
+                                      </div>
+                                      <div class="course-content-right">
+                                        <span class="min-lable">{{
+                                          clase.time_clase
+                                        }}</span>
+                                        <span
+                                          class="rbt-badge variation-03 bg-primary-opacity"
+                                        >
+                                          <i class="feather-eye"></i> Preview
+                                        </span>
+                                      </div>
+                                    </a>
+                                  </li>
+                                </ng-container>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Course Content  -->
+
+              <!-- Start Course Resource  -->
+              <div
+                class="course-content rbt-shadow-box coursecontent-wrapper mt--30 has-show-more"
+                id="coursepdf"
+              >
+                <div class="rbt-course-feature-inner">
+                  <div class="section-title">
+                    <h4 class="rbt-title-style-3">Recursos</h4>
+                  </div>
+                  <div class="row" *ngIf="clase_selected">
+                    <ng-container *ngFor="let file of clase_selected.files">
+
+                      <div class="col-6">
+                        <div class="course-content-left">
+                          <a href="">
+                            <i class="feather-file-text"></i>
+                            <span class="text">{{ file.name }} {{ file.size }}</span>
+                          </a>
+                        </div>
+                      </div>
+                    </ng-container>
+                    <!-- <div class="col-6">
+                      <div class="course-content-left">
+                        <a href="">
+                          <i class="feather-file-text"></i>
+                          <span class="text">Read Before You Start</span>
+                        </a>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <!-- End Course Resource  -->
+
+              <!-- Start Course Feature Box  -->
+              <div
+                class="rbt-course-feature-box overview-wrapper rbt-shadow-box mt--30"
+                id="overview"
+              >
+                <div
+                  class="rbt-course-feature-inner has-show-more-inner-content"
+                  [innerHtml]="courses_selected.description"
+                ></div>
+                <!-- <div class="rbt-show-more-btn">Show More</div> -->
+              </div>
+              <!-- End Course Feature Box  -->
+
+              <!-- Start Course Feature Box  -->
+              <div
+                class="rbt-course-feature-box rbt-shadow-box details-wrapper mt--30"
+                id="details"
+              >
+                <div class="row g-5">
+                  <!-- Start Feture Box  -->
+                  <div class="col-lg-6">
+                    <div class="section-title">
+                      <h4 class="rbt-title-style-3 mb--20">Requirements</h4>
+                    </div>
+                    <ul class="rbt-list-style-1">
+                      <ng-container
+                        *ngFor="
+                          let requirement of courses_selected.requirements
+                        "
+                      >
+                        <li><i class="feather-check"></i>{{ requirement }}</li>
+                      </ng-container>
+                    </ul>
+                  </div>
+                  <!-- End Feture Box  -->
+
+                  <!-- Start Feture Box  -->
+                  <div class="col-lg-6">
+                    <div class="section-title">
+                      <h4 class="rbt-title-style-3 mb--20">
+                        ¿Para quién esta dirigido?
+                      </h4>
+                    </div>
+                    <ul class="rbt-list-style-1">
+                      <ng-container
+                        *ngFor="let wiif of courses_selected.who_is_it_for"
+                      >
+                        <li><i class="feather-check"></i>{{ wiif }}</li>
+                      </ng-container>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- End Course Feature Box  -->
+
+              <!-- Start Intructor Area  -->
+              <div
+                class="rbt-instructor rbt-shadow-box intructor-wrapper mt--30"
+                id="intructor"
+              >
+                <div class="about-author border-0 pb--0 pt--0">
+                  <div class="section-title mb--30">
+                    <h4 class="rbt-title-style-3">Instructor</h4>
+                  </div>
+                  <div class="media align-items-center">
+                    <div class="thumbnail">
+                      <a href="#" onclick="return false;">
+                        <img
+                          [src]="courses_selected.instructor.avatar"
+                          alt="Author Images"
+                        />
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <div class="author-info">
+                        <h5 class="title">
+                          <a
+                            class="hover-flip-item-wrapper"
+                            href="author.html"
+                            >{{ courses_selected.instructor.full_name }}</a
+                          >
+                        </h5>
+                        <span class="b3 subtitle">{{
+                          courses_selected.instructor.profesion
+                        }}</span>
+                        <ul class="rbt-meta mb--20 mt--10">
+                          <li>
+                            <i class="fa fa-star color-warning"></i
+                            >{{
+                              courses_selected.instructor.count_reviews
+                            }}
+                            Reviews
+                            <span class="rbt-badge-5 ml--5"
+                              >{{
+                                courses_selected.instructor.avg_reviews
+                              }}
+                              Rating</span
+                            >
+                          </li>
+                          <li>
+                            <i class="feather-users"></i
+                            >{{
+                              courses_selected.instructor.count_students
+                            }}
+                            Students
+                          </li>
+                          <li>
+                            <a href="#"
+                              ><i class="feather-video"></i
+                              >{{
+                                courses_selected.instructor.courses_count
+                              }}
+                              Courses</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="content">
+                        <p class="description">
+                          {{ courses_selected.instructor.description }}
+                        </p>
+
+                        <ul
+                          class="social-icon social-default icon-naked justify-content-start"
+                        >
+                          <li>
+                            <a href="https://www.facebook.com/">
+                              <i class="feather-facebook"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.twitter.com">
+                              <i class="feather-twitter"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.instagram.com/">
+                              <i class="feather-instagram"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://www.linkdin.com/">
+                              <i class="feather-linkedin"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Intructor Area  -->
+            </div>
+            <!-- End Course Details  -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Course Action Bottom  -->
+<div class="rbt-separator-mid">
+  <div class="container">
+    <hr class="rbt-separator m-0" />
+  </div>
+</div>
